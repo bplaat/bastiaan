@@ -1,0 +1,2 @@
+# Redirect default Netlify subdomain to primary domain
+https://bastiaan.netlify.com/* https://bastiaan.ml/:splat 301!
