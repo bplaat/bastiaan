@@ -13,11 +13,25 @@ body {
     background-color: #06beb6;
     background-image: linear-gradient(to right, #06beb6, #48b1bf);
     color: #fff;
+    text-align: center;
+}
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.main {
+    height: 100%;
+    width: 100%;
+    display: table;
+}
+
+.wrapper {
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.container {
+    margin: auto;
+    min-width: 350px;
+    max-width: 500px;
 }
 
 h1, p, ul {
@@ -43,15 +57,16 @@ a:hover, a:focus {
 }
 
 .sites {
-    display: flex;
+    display: table;
 }
 .sites > ul {
-    width: 200px;
+    display: table-cell;
+    width: 250px;
 }
 
 .social li {
-    float: left;
-    margin: 0 8px;
+    display: inline;
+    margin: 0 4px;
 }
 
 @media (min-width: 768px) {
