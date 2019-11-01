@@ -1,2 +1,2 @@
 # bplaat/bastiaan
-My new person website
+My new personal website
