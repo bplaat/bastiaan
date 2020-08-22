@@ -18,31 +18,9 @@ body {
     display: table;
     width: 100%;
     height: 100%;
-
-    background: #B24592;
-    background: -webkit-linear-gradient(to right, #F15F79, #B24592);
-    background: linear-gradient(to right, #F15F79, #B24592);
-    background-size: 400% 400%;
-
-    -webkit-animation: background 8s ease infinite;
-    -moz-animation: background 8s ease infinite;
-    animation: background 8s ease infinite;
-}
-
-@-webkit-keyframes background {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-@-moz-keyframes background {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-@keyframes background {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+    background-color: #FF416C;
+    background-image: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+    background-image: linear-gradient(to right, #FF4B2B, #FF416C);
 }
 
 .wrapper {
