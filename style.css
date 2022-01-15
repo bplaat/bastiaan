@@ -19,9 +19,9 @@ body {
     display: table;
     width: 100%;
     height: 100%;
-    background-color: #67B26F;
-    background-image: -webkit-linear-gradient(to right, #4ca2cd, #67B26F);
-    background-image: linear-gradient(to right, #4ca2cd, #67B26F);
+    background: #FF512F;
+    background: -webkit-linear-gradient(to right, #F09819, #FF512F);
+    background: linear-gradient(to right, #F09819, #FF512F);
 }
 
 .wrapper {
