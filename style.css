@@ -19,9 +19,9 @@ body {
     display: table;
     width: 100%;
     height: 100%;
-    background: #f857a6;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #ff5858, #f857a6);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #ff5858, #f857a6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-color: #B24592;
+    background-image: -webkit-linear-gradient(to right, #F15F79, #B24592);
+    background-image: linear-gradient(to right, #F15F79, #B24592);
 }
 
 .wrapper {
