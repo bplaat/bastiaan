@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     height: 100%;
 }
 
@@ -13,7 +14,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #38a3a5;
+    background-color: #f08080;
 }
 
 a {
@@ -21,11 +22,18 @@ a {
     text-decoration: none;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
     text-decoration: underline;
 }
 
+ul {
+    list-style: none;
+    padding: 0;
+}
+
 .icon {
+    display: inline-block;
     width: 1.5rem;
     height: 1.5rem;
     fill: currentColor;
@@ -33,19 +41,29 @@ a:hover, a:focus {
 
 .slides {
     position: relative;
-    width: 80vw;
-    height: 75vh;
+    width: 85vw;
+    height: 80vh;
     border-radius: 1rem;
+    overflow: hidden;
 }
 
 .slides-scroll {
     height: 100%;
     overflow: hidden auto;
+
+    scrollbar-width: none;
+
+    scroll-snap-type: mandatory;
+    scroll-snap-points-y: repeat(100%);
+    scroll-snap-type: y mandatory;
 }
 
 .slide {
     position: relative;
     height: 100%;
+
+
+    scroll-snap-align: start;
 }
 
 .slide-background {
@@ -61,7 +79,9 @@ a:hover, a:focus {
     bottom: 1.5rem;
     left: 2rem;
 }
-.expand-button h3, p {
+
+.expand-button h3,
+p {
     margin: .5rem 0;
 }
 
@@ -74,15 +94,13 @@ a:hover, a:focus {
     font-size: 2rem;
 }
 
-.menu-button {
+/* .menu-button {
     position: absolute;
-    top: 2rem;
-    right: 2rem;
-}
+} */
 
 .language {
     position: absolute;
-    bottom: 2rem;
+    top: 2rem;
     right: 2rem;
     margin: 0;
     line-height: 1;
