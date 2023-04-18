@@ -31,7 +31,7 @@
         <p>
             A 20 year old<br />
             <a href="#">Dutch 🇳🇱</a> <span>Christian ✝️</span><br />
-            dude from <a href="#">Gouda 🧀</a><br />
+            guy from <a href="#">Gouda 🧀</a><br />
             My hobbies are<br />
             programming <span>🧑🏻‍💻</span><br />
             and scouting <span>⚜️</span>

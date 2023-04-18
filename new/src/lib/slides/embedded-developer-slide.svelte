@@ -2,10 +2,13 @@
     import { onMount } from "svelte";
     import lottie from 'lottie-web';
 
+    // State
     let animationContainer;
 
+    // Methods
     onMount(() => {
         lottie.loadAnimation({
+            name: 'embedded-developer',
             container: animationContainer,
             renderer: "svg",
             loop: true,

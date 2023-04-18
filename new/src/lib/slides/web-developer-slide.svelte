@@ -2,16 +2,20 @@
     import { onMount } from "svelte";
     import lottie from 'lottie-web';
 
+    // State
     let animationContainer;
 
+    // Methods
     onMount(() => {
         lottie.loadAnimation({
+            name: 'web-developer',
             container: animationContainer,
             renderer: "svg",
             loop: true,
             autoplay: true,
             path: "animations/web-developer.json",
         });
+        lottie.setSpeed(0.5, 'web-developer');
     });
 </script>
 
@@ -21,7 +25,22 @@
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 100 100"
     >
-        <rect x="-200" y="-50" width="400" height="300" fill="#ffff" />
+    <g transform="rotate(20)" style="transform-origin: center;">
+        <rect
+            x="-100"
+            y="-50"
+            width="200"
+            height="300"
+            fill="#ffd6ff"
+        />
+        <rect
+            x="50"
+            y="-50"
+            width="300"
+            height="200"
+            fill="#e7c6ff"
+        />
+    </g>
     </svg>
 
     <div style="position: absolute; top: 20%; left: 10%;">
