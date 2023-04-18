@@ -1,29 +1,44 @@
 <script>
-    import AboutMeSlide from "./lib/slides/about-me-slide.svelte";
-    import EmbeddedDeveloperSlide from "./lib/slides/embedded-developer-slide.svelte";
-    import LowLevelDeveloperSlide from "./lib/slides/low-level-developer-slide.svelte";
-    import MobileDeveloperSlide from "./lib/slides/mobile-developer-slide.svelte";
-    import ScoutsVolunteerSlide from "./lib/slides/scouts-volunteer-slide.svelte";
-    import SoftwareDeveloperSlide from "./lib/slides/software-developer-slide.svelte";
-    import WebDeveloperSlide from "./lib/slides/web-developer-slide.svelte";
+    import AboutMeSlide from "./components/slides/about-me-slide.svelte";
+    import EmbeddedSlide from "./components/slides/embedded-slide.svelte";
+    import GameSlide from "./components/slides/game-slide.svelte";
+    import LowLevelSlide from "./components/slides/low-level-slide.svelte";
+    import MobileSlide from "./components/slides/mobile-slide.svelte";
+    import ScoutsVolunteerSlide from "./components/slides/scouts-slide.svelte";
+    import SoftwareSlide from "./components/slides/software-slide.svelte";
+    import WebSlide from "./components/slides/web-slide.svelte";
 
     // State
+    let slidesContainer;
     let currentSlideIndex = 0;
 
     // Methods
-    function handleSlidesScroll(event) {
+    async function handleSlidesScroll(event) {
         currentSlideIndex = Math.round(
             event.target.scrollTop / event.target.offsetHeight
         );
+
+        const currentSlide = event.target.children[currentSlideIndex];
+
+        slidesContainer.style.backgroundColor = currentSlide.getAttribute("data-slide-background-color");
+        if (currentSlide.hasAttribute("data-slide-retro")) {
+            slidesContainer.classList.add("is-retro");
+        } else {
+            slidesContainer.classList.remove("is-retro");
+        }
+        if (currentSlide.hasAttribute("data-slide-dark")) {
+            slidesContainer.classList.add("is-dark");
+        } else {
+            slidesContainer.classList.remove("is-dark");
+        }
     }
 </script>
 
-<div class="slides-container" class:is-slide-1={currentSlideIndex == 0}
-    class:is-slide-2={currentSlideIndex == 1}
-    class:is-slide-3={currentSlideIndex == 2}
-    class:is-slide-4={currentSlideIndex == 4}
-    class:is-dark={currentSlideIndex == 4}
-    class:is-contact={currentSlideIndex == 7}>
+<div
+    bind:this={slidesContainer}
+    class="slides-container"
+    class:is-contact={currentSlideIndex == 8}
+>
     <div class="slides">
         <div class="slides-overlay">
             <h1 class="header">
@@ -55,15 +70,16 @@
 
         <div class="slides-scroll" on:scroll={handleSlidesScroll}>
             <AboutMeSlide />
-            <SoftwareDeveloperSlide />
-            <WebDeveloperSlide />
-            <MobileDeveloperSlide />
-            <LowLevelDeveloperSlide />
-            <EmbeddedDeveloperSlide />
+            <SoftwareSlide />
+            <WebSlide />
+            <MobileSlide />
+            <GameSlide />
+            <LowLevelSlide />
+            <EmbeddedSlide />
             <ScoutsVolunteerSlide />
 
             <!-- Contact slide -->
-            <div class="slide">
+            <div class="slide" data-slide={{ backgroundColor: '#1d3557' }}>
                 <svg
                     class="slide-background"
                     xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +90,7 @@
                         y="-50"
                         width="400"
                         height="300"
-                        fill="#088"
+                        fill="#457b9d"
                     />
                 </svg>
 

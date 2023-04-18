@@ -79,12 +79,8 @@ button:focus-visible {
   }
 } */
 
-html,
-body,.app,.slides-container {
-    height: 100%;
-}
 
-:root {
+html {
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     line-height: 1.5;
@@ -94,6 +90,13 @@ body,.app,.slides-container {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
+}
+
+html,
+body,
+.app,
+.slides-container {
+    height: 100%;
 }
 
 body {
@@ -108,6 +111,10 @@ a {
 a:hover,
 a:focus {
     text-decoration: underline;
+}
+
+h1, h2, h3, h4, p {
+    margin: 1rem 0;
 }
 
 ul {
@@ -128,23 +135,12 @@ ul {
     justify-content: center;
 
     color: #111;
+    background-color: #59a5d8;
     transition: background-color ease-in-out 0.2s;
 }
 
-.is-slide-1 {
-    background-color: #f08080;
-}
-
-.is-slide-2 {
-    background-color: #ddbea9;
-}
-
-.is-slide-3 {
-    background-color: #c8b6ff;
-}
-
-.is-slide-4 {
-    background-color: #050505;
+.is-retro {
+    color: #000;
 }
 
 .is-dark {
@@ -195,6 +191,13 @@ ul {
     height: 100%;
 }
 
+.slide-half {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .expand-button {
     position: absolute;
     bottom: 1.5rem;
@@ -202,7 +205,7 @@ ul {
 }
 
 .expand-button h3,
-p {
+.expand-button p {
     margin: .5rem 0;
 }
 
@@ -215,14 +218,196 @@ p {
     font-size: 2rem;
 }
 
-/* .menu-button {
-    position: absolute;
-} */
-
 .language {
     position: absolute;
     top: 2rem;
     right: 2rem;
     margin: 0;
     line-height: 1;
+}
+
+/* ##### Animations ##### */
+
+/* Fade in */
+@keyframes fade-in-top {
+    0% {
+        opacity: 0;
+        transform: translateY(-25%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+.fade-in-top {
+    animation: fade-in-top ease-in-out .5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    transform: translateY(-25%);
+}
+
+@keyframes fade-in-bottom {
+    0% {
+        opacity: 0;
+        transform: translateY(25%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+.fade-in-bottom {
+    animation: fade-in-bottom ease-in-out .5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    transform: translateY(25%);
+}
+
+@keyframes fade-in-left {
+    0% {
+        opacity: 0;
+        transform: translateX(-25%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+.fade-in-left {
+    animation: fade-in-left ease-in-out .5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    transform: translateX(-25%);
+}
+
+@keyframes fade-in-right {
+    0% {
+        opacity: 0;
+        transform: translateX(25%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+.fade-in-right {
+    animation: fade-in-right ease-in-out .5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    transform: translateX(25%);
+}
+
+/* Wiggle */
+@keyframes wiggle {
+
+    0%,
+    100% {
+        transform: translateX(-5%);
+    }
+
+    50% {
+        transform: translateX(5%);
+    }
+}
+
+.wiggle {
+    animation: wiggle ease-in-out 8s infinite;
+}
+
+@keyframes wiggle-y {
+
+    0%,
+    100% {
+        transform: translateY(8%);
+    }
+
+    50% {
+        transform: translateY(-8%);
+    }
+}
+
+.wiggle-y {
+    animation: wiggle-y ease-in-out 3s infinite;
+}
+
+@keyframes wiggle-blocky {
+
+    0%, 10% {
+        transform: translateX(-20%);
+    }
+
+    10.0001%, 20% {
+        transform: translateX(-15%);
+    }
+
+    20.0001%, 30% {
+        transform: translateX(-10%);
+    }
+
+    30.0001%, 40% {
+        transform: translateX(-5%);
+    }
+
+    40.0001%, 50% {
+        transform: translateX(0%);
+    }
+
+    50.0001%, 60% {
+        transform: translateX(5%);
+    }
+
+    60.0001%, 70% {
+        transform: translateX(10%);
+    }
+
+    70.0001%, 80% {
+        transform: translateX(15%);
+    }
+
+    80.0001%, 90% {
+        transform: translateX(20%);
+    }
+
+    90.0001%, 100% {
+        transform: translateX(25%);
+    }
+}
+
+.wiggle-blocky {
+    animation: wiggle-blocky ease-in-out 4s infinite;
+}
+
+/* Bubble */
+@keyframes bubble {
+
+    0%,
+    100% {
+        transform: scale(100%);
+    }
+
+    30% {
+        transform: scale(300%);
+    }
+    40% {
+        transform: scale(200%);
+    }
+    60% {
+        transform: scale(1000%);
+    }
+    70% {
+        transform: scale(50%);
+    }
+}
+
+.bubble {
+    animation: bubble ease-in-out 4s infinite;
+    transform-origin: center;
 }

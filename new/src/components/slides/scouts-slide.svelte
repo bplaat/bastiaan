@@ -1,16 +1,10 @@
-<div class="slide">
+<div class="slide" data-slide-background-color="#3a5a40">
     <svg
         class="slide-background"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 100 100"
     >
-        <rect
-            x="-200"
-            y="-50"
-            width="400"
-            height="300"
-            fill="#588157"
-        />
+        <rect x="-200" y="-50" width="400" height="300" fill="#588157" />
     </svg>
 
     <div style="position: absolute; top: 30%; left: 10%;">
@@ -37,9 +31,7 @@
     <div class="expand-button">
         <h3>If you want to read more about my scouting group</h3>
         <p>
-            <a href="https://diekantankys.nl/"
-                >Check our website then...</a
-            >
+            <a href="https://diekantankys.nl/">Check our website then...</a>
         </p>
     </div>
 </div>
