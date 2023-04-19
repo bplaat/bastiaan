@@ -20,7 +20,9 @@
 
         const currentSlide = event.target.children[currentSlideIndex];
 
-        slidesContainer.style.backgroundColor = currentSlide.getAttribute("data-slide-background-color");
+        slidesContainer.style.backgroundColor = currentSlide.getAttribute(
+            "data-slide-background-color"
+        );
         if (currentSlide.hasAttribute("data-slide-retro")) {
             slidesContainer.classList.add("is-retro");
         } else {
@@ -69,17 +71,17 @@
         </div>
 
         <div class="slides-scroll" on:scroll={handleSlidesScroll}>
-            <AboutMeSlide />
-            <SoftwareSlide />
-            <WebSlide />
-            <MobileSlide />
-            <GameSlide />
-            <LowLevelSlide />
-            <EmbeddedSlide />
-            <ScoutsVolunteerSlide />
+            <AboutMeSlide visible={currentSlideIndex == 0} />
+            <SoftwareSlide visible={currentSlideIndex == 1} />
+            <WebSlide visible={currentSlideIndex == 2} />
+            <MobileSlide visible={currentSlideIndex == 3} />
+            <GameSlide visible={currentSlideIndex == 4} />
+            <LowLevelSlide visible={currentSlideIndex == 5} />
+            <EmbeddedSlide visible={currentSlideIndex == 6} />
+            <ScoutsVolunteerSlide visible={currentSlideIndex == 7} />
 
             <!-- Contact slide -->
-            <div class="slide" data-slide={{ backgroundColor: '#1d3557' }}>
+            <div class="slide" data-slide={{ backgroundColor: "#1d3557" }}>
                 <svg
                     class="slide-background"
                     xmlns="http://www.w3.org/2000/svg"

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #eee;
+        }
+
+        html,
+        body,
+        .app {
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .app {
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+        }
+
+        .slide {
+            height: 100vh;
+            scroll-snap-align: center;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 60vw;
+            height: 40vh;
+            background-color: #fff;
+            overflow: hidden;
+        }
+    </style>
+
+    <script>
+
+
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <div class="slide" style="background-color: blue;"><div class="container"></div></div>
+        <div class="slide" style="background-color: red;"><div class="container"></div></div>
+        <div class="slide" style="background-color: gold;"><div class="container"></div></div>
+        <div class="slide" style="background-color: purple;"><div class="container"></div></div>
+        <div class="slide" style="background-color: rosybrown;"><div class="container"></div></div>
+        <div class="slide" style="background-color: chocolate;"><div class="container"></div></div>
+        <div class="slide" style="background-color: cyan;"><div class="container"></div></div>
+        <div class="slide" style="background-color: crimson;"><div class="container"></div></div>
+        <div class="slide" style="background-color: #ff0;"><div class="container"><h1>Contact</h1></div></div>
+
+        <svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            style="position:absolute;top:0;left:0;width:100vw;height:100vh;pointer-events:none;"
+            viewBox="0 0 64 64"
+        >
+            <defs>
+                <mask id="slides-container">
+                    <rect x="-64" y="-64" width="192" height="192" fill="white" />
+                    <rect x="4" y="8" width="60" height="52" rx="1" fill="black" />
+                </mask>
+            </defs>
+            <rect x="-64" y="-64" width="192" height="192" fill="#088" mask="url(#slides-container)"  />
+        </svg>
+
+    </div>
+</body>
+
+</html>

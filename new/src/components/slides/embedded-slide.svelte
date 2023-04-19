@@ -51,9 +51,8 @@
         />
 
         <h1>I'm a embedded developer</h1>
-        <ul>
-            <li>Embedded Systems</li>
-        </ul>
+        <p>Since my <span>HBO</span> study Technical Computer Science am I also more and more working with hardware and
+            microcontroller. I have developed small systems and electrical designs with multiple sensors and IoT things.</p>
     </div>
 
     <div style="position: absolute; top: 20%; left: 60%;">

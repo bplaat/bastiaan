@@ -196,12 +196,14 @@ ul {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    z-index: 1;
 }
 
 .expand-button {
     position: absolute;
     bottom: 1.5rem;
     left: 2rem;
+    z-index: 1;
 }
 
 .expand-button h3,
