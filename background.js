@@ -19,18 +19,47 @@
     }
 
     const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
-    gl.shaderSource(fragmentShader, `precision mediump float;
-    uniform vec2 resolution;
-    uniform float time;
-    void main() {
-        vec2 p = gl_FragCoord.xy * 20.0 / max(resolution.x, resolution.y);
-        float speed = 50.0;
-        for (int i = 1; i < 20; i++) {
-            p += vec2(0.6 / float(i) * sin(float(i) * p.y + time / (100.0 / speed) + 0.3 * float(i)) + 1.0,
-                0.6 / float(i) * sin(float(i) * p.x + time / (100.0 / speed) + 0.3 * float(i)) - 1.0);
-        }
-        gl_FragColor = vec4(sin(p.x) / 2.0 + 0.5, sin(p.x + p.y) / 3.0 + 0.3, 0.75, 1.0);
-    }`);
+    gl.shaderSource(fragmentShader, `precision lowp float;
+uniform float time;
+uniform vec2 resolution;
+
+float hash(float n) {
+    return fract(sin(n) * 43758.5453);
+}
+
+float noise(vec2 p) {
+    vec2 i = floor(p);
+    vec2 f = fract(p);
+    vec2 u = f * f * (3.0 - 2.0 * f);
+    return mix(mix(hash(i.x + hash(i.y)), hash(i.x + 1.0 + hash(i.y)), u.x),
+               mix(hash(i.x + hash(i.y + 1.0)), hash(i.x + 1.0 + hash(i.y + 1.0)), u.x), u.y);
+}
+
+vec3 auroraLayer(vec2 uv, float speed, float intensity, vec3 color) {
+    float t = time * speed;
+    vec2 scaleXY = vec2(2.0, 2.0);
+    vec2 movement = vec2(2.0, -2.0);
+    vec2 p = uv * scaleXY + t * movement;
+    float n = noise(p + noise(color.xy + p + t));
+    float aurora = smoothstep(0.0, 0.2, n - uv.y) * (1.0 - smoothstep(0.0, 0.6, n - uv.y));
+    return aurora * intensity * color;
+}
+
+void main(void) {
+    vec2 uv = gl_FragCoord.xy / resolution.xy;
+
+    vec3 color = vec3(0.0);
+    color += auroraLayer(uv, 0.05, 0.3, vec3(0.0, 0.2, 0.3));
+    color += auroraLayer(uv, 0.2, 0.4, vec3(0.1, 0.5, 0.9));
+    color += auroraLayer(uv, 0.15, 0.3, vec3(0.2, 0.1, 0.8));
+    color += auroraLayer(uv, 0.07, 0.2, vec3(0.2, 0.1, 0.6));
+
+    vec3 skyColor1 = vec3(0.2, 0.35, 0.4);
+    vec3 skyColor2 = vec3(0.15, 0.2, 0.35);
+    color += skyColor1 * (1.0 - smoothstep(0.0, 1.0, uv.y));
+    color += skyColor2 * (1.0 - smoothstep(0.0, 2.0, uv.y));
+    gl_FragColor = vec4(color, 1.0);
+}`);
     gl.compileShader(fragmentShader);
     if (!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)) {
         console.error(gl.getShaderInfoLog(fragmentShader));
