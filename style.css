@@ -1,7 +1,22 @@
+:root {
+    --text-color: #000;
+    --background-color: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-color: #fff;
+        --background-color: #000;
+    }
+}
+
 body {
-    font-family: monospace;
+    font-family: 'PT Serif', serif;
     font-size: 16px;
     line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 html,
@@ -11,18 +26,9 @@ body {
 
 body {
     margin: 0;
-    color: #fff;
-    background-color: #000;
+    color: var(--text-color);
+    background-color: var(--background-color);
     text-align: center;
-    text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.3);
-}
-
-#canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
 }
 
 .main {
@@ -56,7 +62,7 @@ a {
     color: inherit;
     font-weight: 700;
     text-decoration: none;
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
 a:hover,
@@ -69,6 +75,7 @@ a:focus {
     height: 48px;
     vertical-align: middle;
     transform: translateY(-4px);
+    margin-right: 4px;
 }
 
 .sites {
@@ -76,13 +83,19 @@ a:focus {
     justify-content: center;
 }
 
-.sites>ul {
+.sites > ul {
     width: 300px;
+    margin: 0;
+}
+
+.links {
+    width: 75%;
+    margin: 0 auto;
 }
 
 .links li {
     display: inline;
-    margin: 0 4px;
+    margin: 0 6px;
 }
 
 .links .separator {
@@ -102,15 +115,15 @@ a:focus {
 .icon {
     width: 24px;
     height: 24px;
-    margin-right: 12px;
+    margin-right: 8px;
 }
 
-.icon>path {
+.icon > path {
     fill: currentColor;
 }
 
 @media (min-width: 768px) {
     body {
-        font-size: 22px;
+        font-size: 20px;
     }
 }
