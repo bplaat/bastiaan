@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="/style.css" />
     </head>
     <body>
+        <canvas id="background"></canvas>
         <div class="main">
             <div class="container">
                 <h1>
@@ -346,6 +347,7 @@
             </div>
         </div>
 
+        <script src="./background.js"></script>
         <script>
             document.getElementById('age').textContent =
                 new Date(Date.now() - new Date('2002-07-01').getTime()).getFullYear() - 1970;
