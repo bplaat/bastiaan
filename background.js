@@ -18,8 +18,8 @@ function rand(a, b) {
 
 function createParticle(start) {
     return {
-        x: rand(-window.innerWidth, window.innerWidth) - (start ? 0 : window.innerWidth / 2),
-        y: rand(-window.innerHeight, window.innerHeight),
+        x: rand(-window.innerWidth, start ? window.innerWidth : -window.innerWidth / 2),
+        y: rand(-window.innerHeight, start ? window.innerHeight : window.innerHeight * 2),
         vx: rand(0.5, 1.5),
         vy: rand(-1.5, -0.5),
         size: rand(0.5, 3),
