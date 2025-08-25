@@ -49,6 +49,7 @@ function update(delta) {
 
 function draw() {
     ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    const isDarkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
     for (let p of particles) {
         const px = p.x + window.innerWidth / 2;
         const py = p.y + window.innerHeight / 2;
@@ -61,7 +62,7 @@ function draw() {
             ctx.save();
             ctx.beginPath();
             ctx.arc(px, py, p.size, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(255, 255, 255, ${p.alpha})`;
+            ctx.fillStyle = isDarkTheme ? `rgba(255, 255, 255, ${p.alpha})` : `rgba(0, 0, 0, ${p.alpha})`;
             ctx.fill();
             ctx.restore();
         }
